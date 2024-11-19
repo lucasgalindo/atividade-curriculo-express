@@ -2,12 +2,12 @@ const express = require('express');
 const router = express.Router();
 const Curriculo = require('../models/Curriculo');
 
-// Criar currículo (POST)
+
 router.post('/', async (req, res) => {
   const { nome, email, telefone, endereco, formacao, experiencia } = req.body;
 
   try {
-    // Cria um novo currículo
+    
     const novoCurriculo = await Curriculo.create({
       nome,
       email,
@@ -24,7 +24,7 @@ router.post('/', async (req, res) => {
   }
 });
 
-// Obter currículo (GET)
+
 router.get('/:id', async (req, res) => {
   try {
     const curriculo = await Curriculo.findByPk(req.params.id);
@@ -37,7 +37,7 @@ router.get('/:id', async (req, res) => {
   }
 });
 
-// Atualizar currículo (PUT)
+
 router.put('/:id', async (req, res) => {
   const { nome, email, telefone, endereco, formacao, experiencia } = req.body;
   try {
@@ -46,7 +46,7 @@ router.put('/:id', async (req, res) => {
       return res.status(404).json({ error: 'Currículo não encontrado' });
     }
 
-    // Atualiza os dados do currículo
+   
     curriculoAtualizado.nome = nome;
     curriculoAtualizado.email = email;
     curriculoAtualizado.telefone = telefone;
@@ -61,7 +61,7 @@ router.put('/:id', async (req, res) => {
   }
 });
 
-// Excluir currículo (DELETE)
+
 router.delete('/:id', async (req, res) => {
   try {
     const curriculoDeletado = await Curriculo.destroy({

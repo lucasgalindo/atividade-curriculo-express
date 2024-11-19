@@ -28,7 +28,7 @@ const Curriculo = sequelize.define('Curriculo', {
     allowNull: false
   },
 }, {
-  timestamps: false,  // Desativa os campos createdAt e updatedAt
+  timestamps: false,  
   tableName: 'curriculos',
 });
 
